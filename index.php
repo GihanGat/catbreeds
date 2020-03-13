@@ -31,7 +31,7 @@ try{
     /** @var PDO $pdo */
     //$pdo = $app['pdo'];
     print_r($pdo);
-    if $breed_name != ''{
+    if ($breed_name != ""){
         //$insert = $pdo->prepare('INSERT INTO catbreeds (id,breed_name,friendliness,playfulness,activity,intelligence) values (?,?,?,?,?,?)');
         $insert = $pdo->prepare('INSERT INTO catbreeds (breed_name,friendliness,playfulness,activity,intelligence) values (?,?,?,?,?)');
         $insert->execute(array($breed_name, $friendliness, $playfulness, $activity, $intelligence,));
@@ -59,8 +59,6 @@ try{
         //echo($json);
     }else{}
     return new Response($json, 200,['Content-Type' => 'application/json']);
-    }
-}
 }catch(PDOException $error){
     $error -> getMessage();
 }
