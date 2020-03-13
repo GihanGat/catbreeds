@@ -9,8 +9,13 @@ $activity = htmlentities($_POST["activity"]);
 $dsn = "mysql:dbname=cats;unix_socket=/cloudsql/catbreeds:northamerica-northeast1:catbreeds";
 $user = "root";
 $password = "oshi1984";
+//$hostname = 
+$dbname = "cats";
 $pdo = new PDO($dsn, $user, $password);
 
+echo($pdo);
+// Create a new database connection
+//$dbConn = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
 // Create the database if it doesn't exist
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->query('CREATE TABLE IF NOT EXISTS catbreeds ' .
@@ -19,7 +24,7 @@ $pdo->query('CREATE TABLE IF NOT EXISTS catbreeds ' .
          PRIMARY KEY  (`id`)) ENGINE = InnoDB');        
 // Add the PDO object to our Silex application.
 $app['pdo'] = $pdo;
-
+echo($pdo);
 // Insert a visit into the database.
 /** @var PDO $pdo */
 $pdo = $app['pdo'];
@@ -33,6 +38,7 @@ if $breed_name != ''{
 }
 $select = $pdo->prepare('SELECT * FROM catbreeds');
 $select->execute();
+//$result = $stmt->fetch();
 $catBreeds = [];
 while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
     //array_push($catBreeds, sprintf('Breed Name: %s   Friendliness: %s', $row['breed_name'],$row['friendliness']));
