@@ -6,10 +6,24 @@ $intelligence = htmlentities($_POST["intelligence"]);
 $activity = htmlentities($_POST["activity"]);
 
 // Create the PDO object for CloudSQL MySQL.
-$dsn = "mysql:dbname=cats;unix_socket=/cloudsql/catbreeds:northamerica-northeast1:catbreeds";
-$user = "root";
-$password = "oshi1984";
-$pdo = new PDO($dsn, $user, $password);
+//$dsn = "mysql:dbname=cats;unix_socket=/cloudsql/catbreeds:northamerica-northeast1:catbreeds";
+//$user = "root";
+//$password = "oshi1984";
+//$pdo = new PDO($dsn, $user, $password);
+
+// $hostname = "maria-db-cmp1005-prof.mariadb.database.azure.com";
+// $dbname = "mid-term";
+// $username = "baritchie@maria-db-cmp1005-prof";
+// $password = "SuperPassword123";
+
+
+$hostname = "yashdb.mariadb.database.azure.com";
+$dbname = "yashdb";
+$username = "A00205520@yashdb";
+$password = "y@JARI0508";
+
+$pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);// 1, Good Job
+
 
 // Create the database if it doesn't exist
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
