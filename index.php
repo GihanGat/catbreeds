@@ -24,7 +24,6 @@ $password = "y@JARI0508";
 
 $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);// 1, Good Job
 
-
 // Create the database if it doesn't exist
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->query('CREATE TABLE IF NOT EXISTS catbreeds ' .
