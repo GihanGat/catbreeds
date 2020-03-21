@@ -60,8 +60,8 @@ $method = $_SERVER["REQUEST_METHOD"];
 if($method == "GET"){
     $json = json_encode($catBreeds);
     header("content-type: application/json");
-    //echo($json);
+    echo($json);
 }else{}
-return new Response($json, 200,['Content-Type' => 'application/json']);
+//return new Response($json, 200,['Content-Type' => 'application/json']);
 ?>
 
